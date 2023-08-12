@@ -1,0 +1,28 @@
+package SeleniumExample;
+
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.Point;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class ButtonExample {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+        System.setProperty("webdriver.chrome.driver","C:\\\\Users\\\\Baveendran\\\\Downloads\\\\chromedriver_win32\\\\chromedriver.exe");
+        WebDriver driver=new ChromeDriver();
+        driver.get("https://www.leafground.com/button.xhtml");
+        //find the button height and weight
+       WebElement buttonvalue=driver.findElement(By.xpath("//*[@id=\"j_idt88:j_idt98\"]/span[1]"));
+       String height=buttonvalue.getCssValue("height");
+       String widht=buttonvalue.getCssValue("width");
+       System.out.println(height);
+       System.out.println(widht);
+       //click the image button and click on any hidden button
+       WebElement image=driver.findElement(By.id("j_idt88:j_idt102:imageBtn"));
+       image.click();
+       WebElement hidden=driver.findElement(By.id("j_idt88:j_idt102:j_idt104"));
+       hidden.click();
