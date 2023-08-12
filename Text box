@@ -1,0 +1,37 @@
+package SeleniumExample;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class TextBox {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		System.setProperty("wedriver.chrome.driver","C:\\Users\\Baveendran\\Downloads\\chromedriver_win32\\chromedriver.exe");
+		WebDriver driver= new ChromeDriver();
+		driver.get("https://www.leafground.com/input.xhtml");
+		//type something in text box
+		WebElement text= driver.findElement(By.xpath("//*[@id=\"j_idt88:name\"]"));
+		text.sendKeys("vigazhni");
+		//Append the text
+		WebElement appendcountry=driver.findElement(By.id("j_idt88:j_idt91"));
+		appendcountry.sendKeys("india");
+		//the text box is disable or not
+		WebElement disable=driver.findElement(By.id("j_idt88:j_idt93"));
+		boolean find=disable.isEnabled();
+		System.out.println("If dissable" +find);
+		//clear the text in the text box
+        WebElement cleartext=driver.findElement(By.id("j_idt88:j_idt95"));
+        cleartext.clear();
+        //get the text in the text box
+        WebElement retrieve=driver.findElement(By.id("j_idt88:j_idt97"));
+        String get=retrieve.getAttribute("value");
+        System.out.println(get);
+        driver.quit();
+	}
+
+}
