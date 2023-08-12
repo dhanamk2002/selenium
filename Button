@@ -1,0 +1,36 @@
+package SeleniumExample;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.Point;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class ButtonExample {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+        System.setProperty("webdriver.chrome.driver","C:\\\\Users\\\\Baveendran\\\\Downloads\\\\chromedriver_win32\\\\chromedriver.exe");
+        WebDriver driver=new ChromeDriver();
+        driver.get("https://www.leafground.com/button.xhtml");
+        //click and confirm the title
+        WebElement confirmtitle=driver.findElement(By.id("j_idt88:j_idt90"));
+        confirmtitle.click();
+        String title=driver.getTitle();
+        System.out.println("Th title is"+title);
+        driver.navigate().back();
+        //check where the button is disabled
+        WebElement disable=driver.findElement(By.id("j_idt88:j_idt92"));
+        boolean button=disable.isEnabled();
+        System.out.println(button);
+        //get the position of the button
+        WebElement position=driver.findElement(By.xpath("//*[@id=\"j_idt88:j_idt94\"]"));
+       Point getposition= position.getLocation();
+       System.out.println(getposition);
+       // get the button color
+       WebElement colors=driver.findElement(By.xpath("//*[@id=\"j_idt88:j_idt96\"]/span[1]"));
+       String getcssvalue=colors.getCssValue("color");
+       System.out.println(getcssvalue);
+	}
+
+}
