@@ -1,0 +1,36 @@
+package SeleniumExample;
+
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class FrameExample {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+       System.setProperty("webdriver.chrome.driver","C:\\Users\\Baveendran\\Downloads\\chromedriver_win32\\chromedriver.exe");
+       WebDriver driver=new ChromeDriver();
+       driver.get("https://www.leafground.com/frame.xhtml");
+      
+       //inside frame
+       driver.switchTo().frame(0);
+       WebElement clickframe=driver.findElement(By.id("Click"));
+       clickframe.click();
+       String gettext=clickframe.getText();
+       System.out.println(gettext);
+      //inside nested frame
+       driver.switchTo().frame(2);
+       driver.switchTo().frame("frame2");
+       WebElement  frame=driver.findElement(By.id("Click"));
+       frame.click();
+       String text=frame.getText();
+       System.out.println(text);
+       
+       
+	}
+
+}
+
