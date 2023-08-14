@@ -1,0 +1,28 @@
+package SeleniumExample;
+
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
+
+public class HandleMultiSelectList {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		System.setProperty("webdriver.chrome.driver","C:\\Users\\Baveendran\\Downloads\\chromedriver_win32\\chromedriver.exe");
+	    WebDriver driver=new ChromeDriver();
+	    driver.get("https://jqueryui.com/selectable/");
+	    driver.switchTo().frame(0);
+	    List <WebElement> select=driver.findElements(By.xpath("/html/body/ol/li"));
+	    int listsize=select.size();
+	    System.out.println(listsize);
+      Actions action=new Actions(driver);
+       action.keyDown(Keys.CONTROL).clickAndHold(select.get(0)).clickAndHold(select.get(3)).perform();
+	}
+
+}
+//https://www.leafground.com/select.xhtml
