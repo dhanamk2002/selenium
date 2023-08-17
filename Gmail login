@@ -1,0 +1,29 @@
+package SeleniumExample;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+//import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class GmailExample {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		System.setProperty("webdriver.chrome.driver","C:\\Users\\Baveendran\\Downloads\\chromedriver_win32\\chromedriver.exe");
+		WebDriver driver=new ChromeDriver();
+		driver.get("https://www.google.co.in");
+		WebElement opengmail=driver.findElement(By.xpath("//*[@id=\"gb\"]/div/div[1]/div/div[1]/a"));
+		opengmail.click();
+		//driver.get(driver.getCurrentUrl());
+		WebElement signin=driver.findElement(By.xpath("/html/body/header/div/div/div/a[2]"));
+		signin.click();
+		//driver.get(driver.getCurrentUrl());
+		WebElement signins=driver.findElement(By.xpath("//*[@id=\"identifierId\"]"));
+		signins.click();
+		signins.sendKeys("welcome12@gmail.com"+Keys.ENTER);
+		
+	}
+
+}
