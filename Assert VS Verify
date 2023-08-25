@@ -1,0 +1,31 @@
+package TestNG;
+
+import static org.testng.Assert.fail;
+
+import org.testng.annotations.Test;
+import org.testng.asserts.IAssert;
+import org.testng.asserts.SoftAssert;
+
+public class assertxample {
+	//private SoftAssert SoftAssert;
+	//Assert 
+	@Test
+	public void Assert() {
+		//hard assert
+		System.out.println("Before assert");
+		org.testng.Assert.fail();
+		System.out.println("After assert");
+		
+	}
+	//verify
+	@Test
+	public void verify()
+	{
+		//soft assert
+		SoftAssert assert1 =new SoftAssert();
+		System.out.println("Before assert");
+		assert1.fail();
+		System.out.println("After assert");
+	}
+
+}
