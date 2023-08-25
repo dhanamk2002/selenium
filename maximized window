@@ -1,0 +1,29 @@
+package TestNG;
+
+import org.openqa.selenium.Dimension;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.testng.annotations.Test;
+
+public class maximizeMethods {
+    
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		System.setProperty("webdriver.chrome.driver", "C:\\Users\\Baveendran\\Downloads\\chromedriver-win32\\chromedriver-win32\\chromedriver.exe");
+		//maximize window using chrome option
+		ChromeOptions chrome=new ChromeOptions();
+		chrome.addArguments("--Start-maximized");
+		WebDriver driver=new ChromeDriver();
+		driver.get("https://www.google.com");
+		//driver.manage().window().maximize();
+		
+		/*WebDriver driver=new ChromeDriver();
+		driver.get("https://www.google.com");
+		//maximize window using Dimensions 
+		Dimension dimension=new Dimension(800,800);
+		driver.manage().window().setSize(dimension);*/
+
+	}
+
+}
